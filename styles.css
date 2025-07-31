@@ -74,12 +74,13 @@
     margin-right: auto; 
     font-size: 36px;
     margin-bottom: 20px;
-    background-color: rgb(209, 209, 209)
+    background-color: rgb(209, 209, 209);
 }
 
 #display
 {
-    background-color: rgb(209, 209, 209)
+    background-color: rgb(209, 209, 209);
+    overflow: auto; 
 }
 
 
