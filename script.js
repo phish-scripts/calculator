@@ -1,3 +1,32 @@
+// DOM 
+let display = document.getElementById("display");
+
+// Numbers
+let seven = document.getElementById("seven");
+let six = document.getElementById("six");
+let five = document.getElementById("five");
+let four = document.getElementsById("four");
+let three = document.getElementById("three");
+let two = document.getElementById("two");
+let one = document.getElementById("one")
+let zero = document.getElementById("zero");
+
+// Operators
+const add = document.getElementById("add");
+const subtract = document.getElementById("subtract");
+const multiply = document.getElementById("multiply");
+const divide = document.getElementById("divide");
+
+const clear = document.getElementById("divide");
+const equals = document.getElementById("equals");
+
+
+
+
+
+
+
+
 // Operations
 function add(a, b)
 {   
@@ -47,6 +76,7 @@ function operate(operator, a, b)
     }
 }
 
+// test
 operate("-", 5, 3)
 
 
