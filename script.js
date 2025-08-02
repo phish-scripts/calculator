@@ -1,4 +1,5 @@
 // DOM 
+console.log("We are ready to go. Also, if you are looking at the console, please feel free to code review");
 let display = document.getElementById("display");
 
 // Numbers
@@ -48,7 +49,7 @@ function divide(a, b)
     return a/b;
 }
 
-function operate(operator, a, b)
+function operate(a, operator, b)
 {
     if (operator == "+")
     {
@@ -70,70 +71,178 @@ function operate(operator, a, b)
         console.log("dividing " + a + " and " + b)
         return divide(a, b)
     }
+    else{
+        console.log("Somehow, no valid operator was entered");
+    }
 }
 
-// test
-operate("-", 5, 3)
-
-
 // event listeners (numbers)
-
 one.addEventListener("click", () => {
     display.textContent += "1";
+    console.log("Entered 1");
 })
 
 two.addEventListener("click", () => {
     display.textContent += "2";
+    console.log("Entered 2");
 })
 
 three.addEventListener("click", () => {
     display.textContent += "3";
+    console.log("Entered 3");
 })
 
 four.addEventListener("click", () => {
     display.textContent += "4";
+    console.log("Entered 4");
 })
 
 five.addEventListener("click", () => {
-    display.textContent += "5"; 
+    display.textContent += "4";
+    console.log("Entered 5");
 })
 
 six.addEventListener("click", () => {
     display.textContent += "6"; 
+    console.log("Entered 6");
 })
 
 seven.addEventListener("click", () => {
     display.textContent += "7"; 
+    console.log("Entered 7");
 })
 
 eight.addEventListener("click", () => {
     display.textContent += "8"; 
+    console.log("Entered 8");
 })
 
 nine.addEventListener("click", () => {
     display.textContent += "9"; 
+    console.log("Entered 9");
 })
 
-nine.addEventListener("click", () => {
-    display.textContent += "9"; 
+zero.addEventListener("click", () => {
+    display.textContent += "0";
+    console.log("Entered 0"); 
 })
 
 clear.addEventListener("click", () => {
     display.textContent = ""; 
+    console.log("Hit Clear");
 })
 
 
+// Event Listeners (Operators)
+
+let operation = [];
+
+adding.addEventListener("click", () => {
+    
+    operation.push(display.textContent);
+    display.textContent = "";
+    operation.push("+");
+
+    if (operation.length >= 3)
+    {
+        let a = parseFloat(operation[0]);
+        let operator = operation[1];
+        let b = parseFloat(operation[2]);
+
+        let result = operate(a, operator, b);
+
+        display.textContent = result;
+
+        operation = [result, "+"];
 
 
+    }
+})
+
+subtracting.addEventListener("click", () => {
+    operation.push(display.textContent);
+    display.textContent = "";
+    operation.push("-");
 
 
+    if (operation.length >= 3)
+    {
+        let a = parseFloat(operation[0]);
+        let operator = operation[1];
+        let b = parseFloat(operation[2]);
+
+        let result = operate(a, operator, b);
+
+        display.textContent = result;
+
+        operation = [result, "-"];
 
 
+    }
+})
+
+multiplying.addEventListener("click", () => {
+    operation.push(display.textContent);
+    display.textContent = "";
+    operation.push("*");
+
+    if (operation.length >= 3)
+    {
+        let a = parseFloat(operation[0]);
+        let operator = operation[1];
+        let b = parseFloat(operation[2]);
+
+        let result = operate(a, operator, b);
+
+        display.textContent = result;
+
+        operation = [result, "*"];
 
 
+    }
+})
+
+dividing.addEventListener("click", () => {
+    operation.push(display.textContent);
+    display.textContent = "";
+    operation.push("/");
 
 
+    if (operation.length >= 3)
+    {
+        let a = parseFloat(operation[0]);
+        let operator = operation[1];
+        let b = parseFloat(operation[2]);
 
+        let result = operate(a, operator, b);
+        
+
+        display.textContent = result;
+
+        operation = [result, "/"];
+
+
+    }
+})
+
+equals.addEventListener("click", () => {
+    
+    operation.push(display.textContent);
+
+    let a = parseFloat(operation[0]);
+    let operator = operation[1];
+    let b = parseFloat(operation[2]);
+
+    let result = operate(a, operator, b); 
+
+
+    display.textContent = result;
+
+    operation = [];
+    console.log(operation);
+    operation.push(result);    
+    console.log(operation);
+})
 
 
 

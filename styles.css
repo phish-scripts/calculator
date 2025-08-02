@@ -20,7 +20,7 @@
     justify-content: center;
     border: 2px dotted black;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 60px;
 
     background-color: black;
 }
@@ -155,4 +155,41 @@
     font-size: 32px;
     margin-bottom: 5px;
 
+}
+
+.callout
+{
+    margin-top: 45px;
+    border: 2px dashed black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.credits
+{
+    margin-top: 20px;
+    border: 2px dashed whitesmoke;
+    padding: 5px;
+    background-color: black;
+    
+    
+}
+
+.phish
+{
+    background-color: black;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+.phish p 
+{
+    background-color: black;
+}
+
+.phish strong
+{
+    background-color: black;
 }
