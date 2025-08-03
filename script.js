@@ -51,6 +51,7 @@ function divide(a, b)
 
 function operate(a, operator, b)
 {
+    console.log("operator: " +  operator);
     if (operator == "+")
     {
         console.log("adding " + a + " and " + b)
@@ -237,7 +238,9 @@ equals.addEventListener("click", () => {
 
     let result = operate(a, operator, b);
     display.textContent = result;
-    operation = []; // Reset completely
+    operation = [];
+    operation.unshift(result);
+    console.log(operation);
 });
 
 clear.addEventListener("click", () => {
