@@ -228,27 +228,22 @@ dividing.addEventListener("click", () => {
 })
 
 equals.addEventListener("click", () => {
-    
-    
+    // Only run if we have a first number and an operator
+    if (operation.length < 2) return;
+
     let a = parseFloat(operation[0]);
     let operator = operation[1];
-    let b = parseFloat(operation[2]);
+    let b = parseFloat(display.textContent); // Get the 2nd number now
 
-    let result = operate(a, operator, b); 
-
-
+    let result = operate(a, operator, b);
     display.textContent = result;
-
-    operation = [];
-    console.log(operation);
-    operation.push(result);    
-    console.log(operation);
-})
-
+    operation = []; // Reset completely
+});
 
 clear.addEventListener("click", () => {
-    operations = [];
-    console.log(operations);
+    operation = [];
+    display.textContent = "";
+    console.log(operation);
     console.log("clearing array");
 })
 
