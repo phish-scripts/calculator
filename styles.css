@@ -193,3 +193,41 @@
 {
     background-color: black;
 }
+
+
+/* hovers */
+
+#clear:hover
+{
+    background-color: rgb(224, 97, 97);
+    height: 45px;
+    width: 45px;
+    margin-left: 3px;
+}
+
+#equals:hover
+{
+    height: 45px;
+    width: 45px;
+    background-color: rgb(124, 210, 124);
+    margin-left: 3px;
+}
+
+.numbers:hover
+{
+    height: 45px;
+    width: 45px;
+    background-color: rgb(160, 160, 160);
+    margin-left: 3px;
+}
+
+
+.operators:hover
+{
+    height: 45px;
+    width: 45px;
+    background-color: rgb(210, 210, 210);
+    margin-left: 3px;
+}
+
+

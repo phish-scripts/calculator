@@ -136,9 +136,11 @@ clear.addEventListener("click", () => {
 // Event Listeners (Operators)
 
 let operation = [];
+let a = NaN;
+let b = NaN;
 
 adding.addEventListener("click", () => {
-    
+
     operation.push(display.textContent);
     display.textContent = "";
     operation.push("+");
@@ -227,8 +229,7 @@ dividing.addEventListener("click", () => {
 
 equals.addEventListener("click", () => {
     
-    operation.push(display.textContent);
-
+    
     let a = parseFloat(operation[0]);
     let operator = operation[1];
     let b = parseFloat(operation[2]);
@@ -242,6 +243,13 @@ equals.addEventListener("click", () => {
     console.log(operation);
     operation.push(result);    
     console.log(operation);
+})
+
+
+clear.addEventListener("click", () => {
+    operations = [];
+    console.log(operations);
+    console.log("clearing array");
 })
 
 
