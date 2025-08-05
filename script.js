@@ -406,11 +406,22 @@ clear.addEventListener("click", () => {
     resultHistory = [];
     historyCounter = 0;
     
+    console.log(resultHistory);
     console.log("firstNumber: " + firstNumber)
     console.log("Operator: " + operator)
     console.log("secondNumber: " + secondNumber)
     console.log("clearing array");
+    console.log("clearing history");
+    clearHistoryList();
 })
+
+function clearHistoryList()
+{
+    document.querySelectorAll(".removeLater").forEach(e => e.remove());
+    console.log("history cleared...");
+
+
+}
 
 
 

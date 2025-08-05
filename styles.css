@@ -46,7 +46,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 45px;
+    
     
 }
 
@@ -268,3 +268,18 @@
     overflow: scroll;
 }
 
+
+.shoutout
+{
+    background-color: black;
+    color: white;
+}
+
+
+/* Changes the "rucs.dev" tag */
+.org
+{
+    background-color: black;
+    color: whitesmoke;
+    width: 55px; 
+}
