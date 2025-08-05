@@ -1,5 +1,6 @@
 // DOM 
 console.log("We are ready to go. Also, if you are looking at the console, please feel free to code review");
+console.log("watch \"backcap adventures\" by bigwii on youtube ");
 let display = document.getElementById("display");
 
 // Numbers
@@ -87,12 +88,27 @@ function operate(a, operator, b)
 let resultHistory = [];
 let counter = 0;
 
+let history = document.querySelector(".history");
+
+let historyCounter = 0;
+
+
 function resultFormed()
 {
     if (!isNaN(resultHistory[counter]))
     {
+        let newResult = document.createElement("li");
+        newResult.textContent = "#" + counter + ": " + resultHistory[counter];
+        newResult.classList.add("removeLater")
+        history.appendChild(newResult);
         display.textContent = ""
         counter++;
+        historyCounter++;
+
+        if (historyCounter > 6)
+        {
+            console.log("clearing history")
+        }
     }
 
     console.log("Here are the history of numbers used: " + resultHistory);
@@ -370,9 +386,6 @@ dividing.addEventListener("click", () => {
 
 })
 
-
-
-
 equals.addEventListener("click", () => {
     secondNumber = parseFloat(display.textContent);
 
@@ -391,12 +404,20 @@ clear.addEventListener("click", () => {
     display.textContent = "";
     counter = 0;
     resultHistory = [];
+    historyCounter = 0;
     
     console.log("firstNumber: " + firstNumber)
     console.log("Operator: " + operator)
     console.log("secondNumber: " + secondNumber)
     console.log("clearing array");
 })
+
+
+
+
+
+
+
 
 
 

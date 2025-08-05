@@ -36,7 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 125vh;
     
 }
 
@@ -46,6 +46,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 45px;
     
 }
 
@@ -58,7 +59,9 @@
     flex-direction: column;
     padding: 10px;
     width: 280px;
-    box-shadow: 12px 12px 2px 1px black
+    box-shadow: 12px 12px 2px 1px black;
+
+    
 }
 
 .screen
@@ -239,12 +242,13 @@
     display: flex;
     width: 250px;
     min-height: 100px;
-    max-height: 300px;
+    max-height: 150px;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    
 
     margin-top: 30px;
 }
@@ -256,5 +260,11 @@
     margin-right: auto;
     background-color: black;
     color: whitesmoke;
+}
+
+.history
+{
+    border: 2px dashed black;
+    overflow: scroll;
 }
 
