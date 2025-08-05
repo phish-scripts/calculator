@@ -24,6 +24,13 @@ const clear = document.getElementById("clear");
 const equals = document.getElementById("equals");
 
 
+// variables 
+let operator = ""
+let firstNumber = NaN;
+let secondNumber = NaN;
+
+let displayRefresh = false;
+
 // Operations
 function add(a, b)
 {   
@@ -77,69 +84,90 @@ function operate(a, operator, b)
     }
 }
 
+let resultHistory = [];
+let counter = 0;
+
+function resultFormed()
+{
+    if (!isNaN(resultHistory[counter]))
+    {
+        display.textContent = ""
+        counter++;
+    }
+
+    console.log("Here are the history of numbers used: " + resultHistory);
+}
+
 // event listeners (numbers)
 one.addEventListener("click", () => {
+
+    resultFormed()
     display.textContent += "1";
     console.log("Entered 1");
 })
 
 two.addEventListener("click", () => {
+
+    resultFormed()
     display.textContent += "2";
     console.log("Entered 2");
 })
 
 three.addEventListener("click", () => {
+
+    resultFormed()
     display.textContent += "3";
     console.log("Entered 3");
 })
 
 four.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "4";
     console.log("Entered 4");
 })
 
 five.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "4";
     console.log("Entered 5");
 })
 
 six.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "6"; 
     console.log("Entered 6");
 })
 
 seven.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "7"; 
     console.log("Entered 7");
 })
 
 eight.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "8"; 
     console.log("Entered 8");
 })
 
 nine.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "9"; 
     console.log("Entered 9");
 })
 
 zero.addEventListener("click", () => {
+    resultFormed()
     display.textContent += "0";
     console.log("Entered 0"); 
 })
 
-clear.addEventListener("click", () => {
-    display.textContent = ""; 
-    console.log("Hit Clear");
-})
 
 
 // Event Listeners (Operators)
 
-let operation = [];
-let a = NaN;
-let b = NaN;
 
+/*
 adding.addEventListener("click", () => {
 
     operation.push(display.textContent);
@@ -161,92 +189,121 @@ adding.addEventListener("click", () => {
 
     }
 })
-
-subtracting.addEventListener("click", () => {
-    operation.push(display.textContent);
-    display.textContent = "";
-    operation.push("-");
+*/
 
 
-    if (operation.length >= 3)
+adding.addEventListener("click", () => {
+
+    if (isNaN(firstNumber))
     {
-        let a = parseFloat(operation[0]);
-        let operator = operation[1];
-        let b = parseFloat(operation[2]);
+        
+        firstNumber = parseFloat(display.textContent);
+        display.textContent = "";
 
-        let result = operate(a, operator, b);
-
-        display.textContent = result;
-
-        operation = [result, "-"];
-
-
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
     }
-})
 
-multiplying.addEventListener("click", () => {
-    operation.push(display.textContent);
-    display.textContent = "";
-    operation.push("*");
-
-    if (operation.length >= 3)
+    if (!isNaN(firstNumber) && (operator == "+" || operator == "-" || operator == "/" || operator == "/"))
     {
-        let a = parseFloat(operation[0]);
-        let operator = operation[1];
-        let b = parseFloat(operation[2]);
+        secondNumber = parseFloat(display.textContent);
+        let result = operate(firstNumber, operator, secondNumber);
+        operator = "";
+        secondNumber = NaN;
+        firstNumber = result;
+        resultHistory.push(result);
 
-        let result = operate(a, operator, b);
+        display.textContent = firstNumber;
 
-        display.textContent = result;
-
-        operation = [result, "*"];
-
-
-    }
-})
-
-dividing.addEventListener("click", () => {
-    operation.push(display.textContent);
-    display.textContent = "";
-    operation.push("/");
-
-
-    if (operation.length >= 3)
-    {
-        let a = parseFloat(operation[0]);
-        let operator = operation[1];
-        let b = parseFloat(operation[2]);
-
-        let result = operate(a, operator, b);
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
         
 
-        display.textContent = result;
 
-        operation = [result, "/"];
+    }
+
+    if (isNaN(firstNumber) && operator== null)
+    {
+        display.textContent = ""
+        
+    }
+    operator = "+";
+
+})
+
+
+
+subtracting.addEventListener("click", () => {
+
+    if (isNaN(firstNumber))
+    {
+        
+        firstNumber = parseFloat(display.textContent);
+        display.textContent = "";
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+    }
+
+
+
+    if (!isNaN(firstNumber) && (operator == "+" || operator == "-" || operator == "/" || operator == "/"))
+    {
+        secondNumber = parseFloat(display.textContent);
+        let result = operate(firstNumber, operator, secondNumber);
+        operator = "";
+        secondNumber = NaN;
+        firstNumber = result;
+        display.textContent = firstNumber;
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+        
 
 
     }
+
+
+    if (operator== null)
+    {
+        display.textContent = ""
+        
+    }
+
+
+    operator = "-";
+
 })
 
+
+
+
 equals.addEventListener("click", () => {
-    // Only run if we have a first number and an operator
-    if (operation.length < 2) return;
+    secondNumber = parseFloat(display.textContent);
 
-    let a = parseFloat(operation[0]);
-    let operator = operation[1];
-    let b = parseFloat(display.textContent); // Get the 2nd number now
-
-    let result = operate(a, operator, b);
-    display.textContent = result;
-    operation = [];
-    operation.unshift(result);
-    console.log(operation);
+    let result = operate(firstNumber, operator, secondNumber)
+    display.textContent = result
+    firstNumber = result;
+    resultHistory.push(result);
+    operator = "";
+    secondNumber = NaN;
 });
 
 clear.addEventListener("click", () => {
-    operation = [];
+    operator = "";
+    firstNumber = NaN;
+    secondNumber = NaN;
     display.textContent = "";
-    console.log(operation);
+    counter = 0;
+    resultHistory = [];
+    
+    console.log("firstNumber: " + firstNumber)
+    console.log("Operator: " + operator)
+    console.log("secondNumber: " + secondNumber)
     console.log("clearing array");
 })
 
