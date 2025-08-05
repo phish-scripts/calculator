@@ -281,6 +281,97 @@ subtracting.addEventListener("click", () => {
 
 
 
+multiplying.addEventListener("click", () => {
+
+    if (isNaN(firstNumber))
+    {
+        
+        firstNumber = parseFloat(display.textContent);
+        display.textContent = "";
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+    }
+
+
+
+    if (!isNaN(firstNumber) && (operator == "+" || operator == "-" || operator == "/" || operator == "/"))
+    {
+        secondNumber = parseFloat(display.textContent);
+        let result = operate(firstNumber, operator, secondNumber);
+        operator = "";
+        secondNumber = NaN;
+        firstNumber = result;
+        display.textContent = firstNumber;
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+        
+
+
+    }
+
+
+    if (operator== null)
+    {
+        display.textContent = ""
+        
+    }
+
+
+    operator = "*";
+
+})
+
+
+dividing.addEventListener("click", () => {
+
+    if (isNaN(firstNumber))
+    {
+        
+        firstNumber = parseFloat(display.textContent);
+        display.textContent = "";
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+    }
+
+
+
+    if (!isNaN(firstNumber) && (operator == "+" || operator == "-" || operator == "/" || operator == "/"))
+    {
+        secondNumber = parseFloat(display.textContent);
+        let result = operate(firstNumber, operator, secondNumber);
+        operator = "";
+        secondNumber = NaN;
+        firstNumber = result;
+        display.textContent = firstNumber;
+
+        console.log("firstNumber: " + firstNumber)
+        console.log("Operator: " + operator)
+        console.log("secondNumber: " + secondNumber)
+        
+
+
+    }
+
+
+    if (operator== null)
+    {
+        display.textContent = ""
+        
+    }
+
+
+    operator = "/";
+
+})
+
+
+
 
 equals.addEventListener("click", () => {
     secondNumber = parseFloat(display.textContent);
