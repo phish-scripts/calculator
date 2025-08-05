@@ -95,7 +95,7 @@ let historyCounter = 0;
 
 function resultFormed()
 {
-    if (!isNaN(resultHistory[counter]))
+    if (!isNaN(resultHistory[counter]) && ((operator == "+" || operator == "-" || operator == "/" || operator == "*") && (!isNaN(display.textContent))))
     {
         let newResult = document.createElement("li");
         newResult.textContent = "#" + counter + ": " + resultHistory[counter];
@@ -105,10 +105,7 @@ function resultFormed()
         counter++;
         historyCounter++;
 
-        if (historyCounter > 6)
-        {
-            console.log("clearing history")
-        }
+    
     }
 
     console.log("Here are the history of numbers used: " + resultHistory);
@@ -284,11 +281,12 @@ subtracting.addEventListener("click", () => {
     }
 
 
-    if (operator== null)
+    if (!isNaN(firstNumber) && operator== null)
     {
         display.textContent = ""
         
     }
+
 
 
     operator = "-";
@@ -330,11 +328,12 @@ multiplying.addEventListener("click", () => {
     }
 
 
-    if (operator== null)
+    if (isNaN(firstNumber) && operator== null)
     {
         display.textContent = ""
         
     }
+
 
 
     operator = "*";
@@ -375,7 +374,7 @@ dividing.addEventListener("click", () => {
     }
 
 
-    if (operator== null)
+    if (isNaN(firstNumber) && operator== null)
     {
         display.textContent = ""
         
