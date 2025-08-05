@@ -41,8 +41,7 @@ To run this project locally, simply download the files and open the index.html f
 
     Open index.html.
 
-✍️ Author
+
 
 This project was created by phish-scripts.
 
-    GitHub Profile
