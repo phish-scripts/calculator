@@ -141,7 +141,7 @@ four.addEventListener("click", () => {
 
 five.addEventListener("click", () => {
     resultFormed()
-    display.textContent += "4";
+    display.textContent += "5";
     console.log("Entered 5");
 })
 
